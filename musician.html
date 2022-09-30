@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music</title>
+</head>
+<body>
+
+<h2>Musician guess by sagarika Anugula</h2>
+
+<form>
+    <label for="form1_age">Enter the secret musician name</label>
+    <input type ="password" id="form1_age" name="form1_age" value="John Lennon"> 
+    <br>
+    <br>
+    <label for="form1_nick">Guess the musician</label>
+    <input type ="text" id="form1_nick" name="form1_nick">
+    <br>
+    <br>
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+var wrong=0
+var correct=0
+
+function checkGuess (){
+    secret = document.getElementById("form1_age").value
+    given = document.getElementById("form1_nick").value
+    val = secret.localeCompare(given, undefined, { sensitivity: 'base' });
+if(val == 0) {
+    correct=1;
+    alert("Your musician is right");
+} else {
+    wrong=1;
+    alert("Your Musician is wrong");
+}
+}
+</script>
+
+</body>
+</html>
