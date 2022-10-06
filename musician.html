@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h2>Musician guess by Sagarika Anugula</h2>
+<h1><span style="color:blue">Computes Discounts by Sagarika Anugula</span></h1>
 
 <form>
     <label for="form1_age">Enter the secret musician name</label>
@@ -17,6 +17,7 @@
     <br>
     <br>
     <input type="button" onclick="checkGuess()" value="Check the guess">
+    
 </form>
 
 
@@ -27,19 +28,25 @@
 <script> 
 var wrong=0
 var correct=0
-
+var count=0
 function checkGuess (){
     secret = document.getElementById("form1_age").value
     given = document.getElementById("form1_nick").value
     val = secret.localeCompare(given, undefined, { sensitivity: 'base' });
 if(val == 0) {
-    correct=1;
+    correct++;
+    count=0;
     alert("Your musician is right");
-} else {
-    wrong=1;
+} 
+else {
+    wrong++;
+    count++;
+    if(count<3)
     alert("Your Musician is wrong");
+    if(count>=3)
+    alert("Sorry, game over");
 }
-}
+}   
    var useImage=1
     function swapImage() {
         switch(useImage){
